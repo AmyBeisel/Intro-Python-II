@@ -76,7 +76,7 @@ while True:
     elif cmd == 'e':
         print("\nWalking east...\n")
         if player_1.current_room.e_to is None:
-            print("****There is no room to the East of you. Select a different direction.****")
+            print("*****There is no room to the East of you. Select a different direction.****")
         else:
             player_1.current_room = player_1.current_room.e_to
     elif cmd == 'w':
