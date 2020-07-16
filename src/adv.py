@@ -42,30 +42,53 @@ room['treasure'].s_to = room['narrow']
 player_1 = Player("Player_1", room["outside"])
 
 # Write a loop that:
-while player_1.current_room:
-# * Prints the current room name
-    print("\nYou are now in the room:\n", player_1.current_room.name)
-# * Prints the current description (the textwrap module might be useful here).
-    print("\nDescription\n", player_1.current_room.description)
+while True:
+    player_1.current_room
+    # * Prints the current room name
+    print("\nYou are now in room:\n", player_1.current_room.name)
+    # * Prints the current description (the textwrap module might be useful here).
+    print("Description:\n", player_1.current_room.description)
 
 # * Waits for user input and decides what to do.
-    user_input = input("Enter 'n', 's,', 'e' or 'w' ('q' to quit):")
-#
-# If the user enters a cardinal direction, attempt to move to the room there.
-    if user_input == 'n':
-        player_1.current_room = player_1.current_room.n_to
-    elif user_input == 's':
-        player_1.current_room = player_1.current_room.s_to
-    elif user_input == 'e':
-        player_1.current_room = player_1.current_room.e_to
-    elif user_input == 'w':
-        player_1.current_room = player_1.current_room.w_to
+    print("\nWhich direction would you like to move?")
+    cmd = input("Press 'n', 's,', 'e', 'w' or ('q' to quit the game):")
 
+# If the user enters "q", quit the game.
+    if cmd == 'q':
+        print("Thanks for playing.  Have a nice day!")
+        break
+
+# If the user enters a cardinal direction, attempt to move to the room there.
+
+    if cmd == 'n':
+        print("\nWalking north...\n")
+        if player_1.current_room.n_to is None:
+            print("****There is no room to the North of you, select different direction.****")
+        else:
+            player_1.current_room = player_1.current_room.n_to
+                
+    elif cmd == 's':
+        print("\nWalking south...\n")
+        if player_1.current_room.s_to is None:
+            print("****There is no room to the South of you. Select a different direction.****")
+        else:
+            player_1.current_room = player_1.current_room.s_to
+    elif cmd == 'e':
+        print("\nWalking east...\n")
+        if player_1.current_room.e_to is None:
+            print("****There is no room to the East of you. Select a different direction.****")
+        else:
+            player_1.current_room = player_1.current_room.e_to
+    elif cmd == 'w':
+        print("\nWalking west...\n")
+        if player_1.current_room.w_to is None:
+            print("****There is no room to the West of you. Select a different direction.****")
+        else:
+            player_1.current_room = player_1.current_room.w_to
 
 # Print an error message if the movement isn't allowed.
     else:
         print ("This movement is not allowed.")
-# If the user enters "q", quit the game.
-    if user_input == 'q':
-        print("Thanks for playing.  Have a nice day!")
-        break
+
+
+
