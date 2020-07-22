@@ -80,7 +80,7 @@ while True:
     if len(available_items)==0:
         print("\nItems in this room: None, you picked it up!")
     else:
-        print("\n<Item(s)> in this room:")
+        print("\nItem(s) in this room:")
         for item in available_items:
             print(item)
             
