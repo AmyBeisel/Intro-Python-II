@@ -72,7 +72,7 @@ while True:
     # * Prints the current room name
     print("\nYou are now in room:\n", player_1.current_room.name)
     # * Prints the current description (the textwrap module might be useful here).
-    print("Description:\n", player_1.current_room.description)
+    print("\nDescription:\n", player_1.current_room.description)
 
     available_items = []
     for item in player_1.current_room.items:
@@ -80,7 +80,7 @@ while True:
     if len(available_items)==0:
         print("\nItems in this room: None, you picked it up!")
     else:
-        print("\nItems in this room:")
+        print("\n<Item(s)> in this room:")
         for item in available_items:
             print(item)
             
@@ -90,7 +90,7 @@ while True:
 Write 'take <insert item>' or drop <insert item>' to select item:\n \
 Press 'i' to check inventory:\n \
 or press 'q' to quit game:\n \
-    ")
+")
 
 
 # If the user enters a cardinal direction, attempt to move to the room there.
@@ -131,9 +131,7 @@ or press 'q' to quit game:\n \
             for item in player_1.inventory:
                 print (item.name)    
 
-# Print an error message if the movement isn't allowed.
-        else:
-            print ("This movement is not allowed.")
+
 
     elif len(cmd.split()) ==2:
         verb = cmd.split()[0]
@@ -158,6 +156,9 @@ or press 'q' to quit game:\n \
                 else:
                     print("The item is not in your inventory")
 
+# Print an error message if the movement isn't allowed.
+        else:
+            print ("This movement is not allowed.")
 
     
         
