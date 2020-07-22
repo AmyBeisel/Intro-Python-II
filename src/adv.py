@@ -129,8 +129,11 @@ or press 'q' to quit game:\n \
         if (cmd == 'i') | (cmd == "inventory"):
             print("Your inventory:")
             for item in player_1.inventory:
-                print (item.name)    
+                print (item.name)  
 
+# Print an error message if the movement isn't allowed.
+        else:
+            print ("This movement is not allowed.") 
 
 
     elif len(cmd.split()) ==2:
@@ -155,10 +158,10 @@ or press 'q' to quit game:\n \
                     items[selected_item].on_drop()
                 else:
                     print("The item is not in your inventory")
+ 
 
-# Print an error message if the movement isn't allowed.
-        else:
-            print ("This movement is not allowed.")
+    
+
 
     
         
